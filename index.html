@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlayTeam – Join the Match</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .card {
+      background: #1c1c1e;
+      border-radius: 24px;
+      padding: 48px 32px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span { color: #FF6B35; }
+
+    .tagline {
+      color: #8e8e93;
+      font-size: 15px;
+      margin-bottom: 40px;
+    }
+
+    .status {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .description {
+      color: #8e8e93;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 36px;
+    }
+
+    .btn-primary {
+      display: block;
+      background: #FF6B35;
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 24px;
+      border-radius: 14px;
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+    }
+
+    .btn-primary:active { opacity: 0.85; }
+
+    .btn-secondary {
+      display: block;
+      background: #2c2c2e;
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 24px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      color: #8e8e93;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid #2c2c2e;
+      border-top-color: #FF6B35;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 24px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">Play<span>Team</span></div>
+    <div class="tagline">Find and join sports matches near you</div>
+
+    <!-- Opening state -->
+    <div id="state-opening">
+      <div class="spinner"></div>
+      <div class="status">Opening PlayTeam…</div>
+      <div class="description">If the app doesn't open automatically, tap the button below.</div>
+      <button class="btn-primary" id="btn-open">Open in PlayTeam</button>
+    </div>
+
+    <!-- App not installed state -->
+    <div id="state-not-installed" class="hidden">
+      <div class="status">Get PlayTeam</div>
+      <div class="description">
+        You need the PlayTeam app to join this match.<br/>
+        Download it to see what your friend invited you to.
+      </div>
+      <a class="btn-primary" href="https://apps.apple.com/app/playteam" id="btn-appstore">
+        Download on the App Store
+      </a>
+      <button class="btn-secondary" id="btn-retry">Already installed? Try again</button>
+    </div>
+  </div>
+
+  <script>
+    const deepLink = 'playteam:/' + window.location.pathname + window.location.search;
+
+    function tryOpen() {
+      window.location.href = deepLink;
+
+      // If still here after 2s, the app probably isn't installed
+      setTimeout(() => {
+        document.getElementById('state-opening').classList.add('hidden');
+        document.getElementById('state-not-installed').classList.remove('hidden');
+      }, 2000);
+    }
+
+    document.getElementById('btn-open').addEventListener('click', tryOpen);
+    document.getElementById('btn-retry').addEventListener('click', () => {
+      document.getElementById('state-not-installed').classList.add('hidden');
+      document.getElementById('state-opening').classList.remove('hidden');
+      tryOpen();
+    });
+
+    // Auto-trigger on page load
+    tryOpen();
+  </script>
+</body>
+</html>
