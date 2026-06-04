@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "99HX56T9TW.com.playteam.app",
+        "paths": [
+          "/match/*"
+        ]
+      }
+    ]
+  }
+}

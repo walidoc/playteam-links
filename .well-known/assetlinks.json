@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.playteam.app",
+    "sha256_cert_fingerprints": ["B5:E6:19:4A:EC:91:7C:71:94:AD:17:1B:20:95:42:D4:93:6C:DF:3B:1C:91:4E:CE:4A:CC:22:46:F7:FC:DF:EB"]
+  }
+}]
