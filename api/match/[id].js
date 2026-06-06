@@ -20,7 +20,7 @@ function formatTime(timeStr) {
 module.exports = async (req, res) => {
   const { id } = req.query;
 
-  let title = 'PlayTeam – Join the Match';
+  let title = 'PlayTeam – Loading match…';
   let description = 'Open PlayTeam to view match details and join.';
   let image = DEFAULT_IMAGE;
 
