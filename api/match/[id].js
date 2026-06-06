@@ -2,7 +2,7 @@ const SUPABASE_URL = 'https://chuvddscyjgxmtypvlkp.supabase.co';
 const SUPABASE_ANON_KEY =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNodXZkZHNjeWpneG10eXB2bGtwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYwMzkyNDYsImV4cCI6MjA3MTYxNTI0Nn0.cSBwfUVQSmoDPx_8bSMSsfr7A2xvcxOW2mvaSnRTuew';
 
-const DEFAULT_IMAGE = 'https://www.playteamapp.com/og-image.png';
+const DEFAULT_IMAGE = 'https://www.playteamapp.com/og-image.jpg';
 
 function formatTime(timeStr) {
   if (!timeStr) return '';
