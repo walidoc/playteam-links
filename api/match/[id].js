@@ -2,12 +2,7 @@ const SUPABASE_URL = 'https://chuvddscyjgxmtypvlkp.supabase.co';
 const SUPABASE_ANON_KEY =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNodXZkZHNjeWpneG10eXB2bGtwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYwMzkyNDYsImV4cCI6MjA3MTYxNTI0Nn0.cSBwfUVQSmoDPx_8bSMSsfr7A2xvcxOW2mvaSnRTuew';
 
-const SPORT_IMAGES = {
-  Football: 'https://www.playteamapp.com/soccer.jpg',
-  Soccer: 'https://www.playteamapp.com/soccer.jpg',
-  Basketball: 'https://www.playteamapp.com/basketball.jpg',
-};
-const DEFAULT_IMAGE = SPORT_IMAGES.Football;
+const DEFAULT_IMAGE = 'https://www.playteamapp.com/og-image.png';
 
 function formatTime(timeStr) {
   if (!timeStr) return '';
@@ -20,7 +15,7 @@ function formatTime(timeStr) {
 module.exports = async (req, res) => {
   const { id } = req.query;
 
-  let title = 'PlayTeam – Loading match…';
+  let title = 'PlayTeam – Join the Match';
   let description = 'Open PlayTeam to view match details and join.';
   let image = DEFAULT_IMAGE;
 
@@ -49,7 +44,7 @@ module.exports = async (req, res) => {
 
       title = `${sport} at ${location}`;
       description = `${date}${time ? ` at ${time}` : ''} · ${spots} · Join on PlayTeam!`;
-      image = match.image_url || SPORT_IMAGES[match.sport_type] || DEFAULT_IMAGE;
+      image = match.image_url || DEFAULT_IMAGE;
     }
   } catch (_) {
     // fall through to defaults
