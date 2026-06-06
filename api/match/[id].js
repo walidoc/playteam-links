@@ -3,9 +3,9 @@ const SUPABASE_ANON_KEY =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNodXZkZHNjeWpneG10eXB2bGtwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYwMzkyNDYsImV4cCI6MjA3MTYxNTI0Nn0.cSBwfUVQSmoDPx_8bSMSsfr7A2xvcxOW2mvaSnRTuew';
 
 const SPORT_IMAGES = {
-  Football: 'https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  Soccer: 'https://images.pexels.com/photos/46798/the-ball-stadion-football-the-pitch-46798.jpeg?auto=compress&cs=tinysrgb&w=1200',
-  Basketball: 'https://images.pexels.com/photos/945471/basketball-ball-823381-945471.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  Football: 'https://www.playteamapp.com/soccer.jpg',
+  Soccer: 'https://www.playteamapp.com/soccer.jpg',
+  Basketball: 'https://www.playteamapp.com/basketball.jpg',
 };
 const DEFAULT_IMAGE = SPORT_IMAGES.Football;
 
