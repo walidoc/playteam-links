@@ -10,5 +10,8 @@
       "headers": [{ "key": "Content-Type", "value": "application/json" }]
     }
   ],
-  "rewrites": [{ "source": "/:path*", "destination": "/index.html" }]
+  "rewrites": [
+    { "source": "/match/:id", "destination": "/api/match/:id" },
+    { "source": "/:path*", "destination": "/index.html" }
+  ]
 }
