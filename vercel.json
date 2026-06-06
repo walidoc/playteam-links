@@ -11,7 +11,6 @@
     }
   ],
   "rewrites": [
-    { "source": "/match/:id", "destination": "/api/match/:id" },
-    { "source": "/:path*", "destination": "/index.html" }
+    { "source": "/match/:id", "destination": "/api/match/:id" }
   ]
 }
