@@ -139,7 +139,7 @@ module.exports = async (req, res) => {
         You need the PlayTeam app to join this match.<br/>
         Download it to see what your friend invited you to.
       </div>
-      <a class="btn-primary" href="https://apps.apple.com/app/playteam" id="btn-appstore">
+      <a class="btn-primary" href="https://apps.apple.com/app/id6772793863" id="btn-appstore">
         Download on the App Store
       </a>
       <button class="btn-secondary" id="btn-retry">Already installed? Try again</button>
