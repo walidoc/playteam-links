@@ -112,6 +112,10 @@ module.exports = async (req, res) => {
       padding: 16px 24px; border-radius: 14px; font-size: 15px; font-weight: 500;
       cursor: pointer; border: none; width: 100%;
     }
+    .is-ios .store-android,
+    .is-android .store-ios {
+      display: none;
+    }
     .spinner {
       width: 40px; height: 40px; border: 3px solid #2c2c2e;
       border-top-color: #0A84FF; border-radius: 50%;
@@ -139,8 +143,11 @@ module.exports = async (req, res) => {
         You need the PlayTeam app to join this match.<br/>
         Download it to see what your friend invited you to.
       </div>
-      <a class="btn-primary" href="https://apps.apple.com/app/id6772793863" id="btn-appstore">
+      <a class="btn-primary store-link store-ios" href="https://apps.apple.com/app/id6772793863" id="btn-appstore">
         Download on the App Store
+      </a>
+      <a class="btn-primary store-link store-android" href="https://play.google.com/store/apps/details?id=com.playteam.app" id="btn-playstore">
+        Get it on Google Play
       </a>
       <button class="btn-secondary" id="btn-retry">Already installed? Try again</button>
     </div>
@@ -148,6 +155,13 @@ module.exports = async (req, res) => {
 
   <script>
     const deepLink = '${deepLink}';
+    const userAgent = navigator.userAgent || navigator.vendor || '';
+    const isAndroid = /android/i.test(userAgent);
+    const isIOS = /iPad|iPhone|iPod/.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+    document.body.classList.toggle('is-android', isAndroid);
+    document.body.classList.toggle('is-ios', isIOS);
+
     function tryOpen() {
       window.location.href = deepLink;
       setTimeout(() => {
